@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import chevDown from '../assets/images/chevron-down.svg';
 
 function Dropdown() {
   const [isOpen, setIsOpen] = useState(false);
@@ -12,11 +13,12 @@ function Dropdown() {
       <button
         id="states-button"
         data-dropdown-toggle="dropdown-states"
-        className="z-10 inline-flex flex-shrink-0 items-center rounded-l-lg border border-gray-300 bg-gray-100 py-2.5 px-4 text-center text-sm font-medium text-gray-500 hover:bg-gray-200 focus:outline-none focus:ring-4 focus:ring-gray-100 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-700"
+        className="z-10 inline-flex flex-shrink-0 items-center rounded-lg border border-gray-300 bg-gray-100 py-2.5 px-4 text-center text-sm font-medium text-gray-500 hover:bg-gray-200 focus:outline-none focus:ring-4 focus:ring-gray-100 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-700"
         type="button"
         onClick={handleDropdownToggle}
       >
         USA
+        <img alt="Chevron down" height="35" src={chevDown} width="35" />
       </button>
       <div
         id="dropdown-states"
