@@ -5,3 +5,18 @@
 body {
   font-family: Inter, Arial, Helvetica, sans-serif;
 }
+
+textarea:before {
+  content: '';
+  height: 120%;
+  width: 100%;
+  position: absolute;
+  top: -10px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #eee;
+}
+
+textarea:after {
+}

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { GithubIcon as Github } from 'lucide-react';
 import {
   APP_LONG_DESCRIPTION,
@@ -7,6 +7,8 @@ import {
 } from '@/utils/getEnv';
 
 const Hero = () => {
+  const [input, setInput] = useState('');
+  const [output, setOutput] = useState('');
   return (
     <section className="h-full w-full flex-1 bg-blue-50">
       <nav className="flex flex-row items-center justify-between py-4 md:mx-auto md:max-w-screen-lg">
@@ -29,6 +31,18 @@ const Hero = () => {
           {APP_LONG_DESCRIPTION}
         </p>
       </div>
+      <form>
+        <textarea
+          aria-label="input"
+          value={input}
+          onChange={(e) => setInput(e.target.value)}
+          rows={4}
+          className="relative mt-3 w-full rounded-md border-2 border-slate-200 p-2 shadow-sm focus:border-slate-500 focus:ring-slate-500"
+          placeholder={
+            'Write or paste the code you want to translate/convert here'
+          }
+        />
+      </form>
     </section>
   );
 };
