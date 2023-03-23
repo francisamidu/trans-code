@@ -31,20 +31,25 @@ const Hero = () => {
           {APP_LONG_DESCRIPTION}
         </p>
       </div>
-      <form>
-        <label htmlFor="input" className="w-full bg-gray-200 py-2">
-          Code
-        </label>
-        <textarea
-          aria-label="input"
-          value={input}
-          onChange={(e) => setInput(e.target.value)}
-          rows={4}
-          className="relative mt-3 w-1/2 rounded-md p-2 shadow-sm outline-none"
-          placeholder={
-            'Write or paste the code you want to translate/convert here'
-          }
-        />
+      <form className="flex flex-row">
+        <div className="flex flex-col bg-white">
+          <label
+            htmlFor="input"
+            className="w-full py-2 text-sm font-bold text-eerie"
+          >
+            Code
+          </label>
+          <textarea
+            aria-label="input"
+            value={input}
+            onChange={(e) => setInput(e.target.value)}
+            rows={4}
+            className="relative rounded-md p-2 shadow-sm outline-none md:w-1/2"
+            placeholder={
+              'Write or paste the code you want to translate/convert here'
+            }
+          />
+        </div>
       </form>
     </section>
   );
