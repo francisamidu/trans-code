@@ -10,12 +10,10 @@ const Hero = () => {
           {APP_NAME}
         </a>
         <a
-          href="https://www.github.com/francisamidu/avatar-gen"
+          href="https://www.github.com/francisamidu/language-x"
           target="_blank"
-          className="inline-flex items-center rounded-xl border-none bg-white px-6 py-2.5 text-center text-sm font-medium text-inherit shadow-md outline-none"
         >
-          <Github color="#fff" size={20} />
-          <span className="ml-2 text-white">Star on Github</span>
+          <Github color="#111" size={20} />
         </a>
       </nav>
     </main>
