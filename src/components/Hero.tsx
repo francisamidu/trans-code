@@ -23,7 +23,7 @@ const Hero = () => {
           <img src={github} alt="Github logo" width="35" height="35" />
         </a>
       </nav>
-      <div className="my-7 mx-auto flex flex-col items-center text-center md:w-7/12">
+      <div className="my-7 mx-auto flex flex-col items-center text-center md:w-1/2">
         <h1 className="px-4 text-2xl font-bold capitalize md:px-0 md:text-6xl md:leading-[4rem]">
           {APP_SHORT_DESCRIPTION}
         </h1>
@@ -41,7 +41,7 @@ const Hero = () => {
             aria-label="input"
             value={input}
             onChange={(e) => setInput(e.target.value)}
-            rows={4}
+            rows={8}
             className="relative rounded-b-md p-2 shadow-sm outline-none "
             placeholder={
               'Write or paste the code you want to translate/convert here'
