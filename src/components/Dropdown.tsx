@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import useClickOutside from '@/hooks/useClickOutside';
+import React, { useRef, useState } from 'react';
 import chevDown from '../assets/images/chevron-down.svg';
 
 function Dropdown() {
@@ -6,6 +7,7 @@ function Dropdown() {
   const [languageIndex, setLanguageIndex] = useState(0);
 
   const [languages, setLanguages] = useState([
+    '',
     'Python',
     'Javascript',
     'C#',
@@ -25,8 +27,14 @@ function Dropdown() {
     setIsOpen(!isOpen);
   };
 
+  const dropdownRef = useRef(null);
+
+  useClickOutside(dropdownRef, () => {
+    setIsOpen(false);
+  });
+
   return (
-    <div className="my-4 flex w-[125px] flex-col">
+    <div className="my-4 flex w-[175px] flex-col" ref={dropdownRef}>
       <button
         id="states-button"
         data-dropdown-toggle="dropdown-states"
@@ -34,9 +42,7 @@ function Dropdown() {
         type="button"
         onClick={handleDropdownToggle}
       >
-        {!languages[languageIndex]
-          ? 'Select desired language'
-          : languages[languageIndex]}
+        {languageIndex === 0 ? 'Select language' : languages[languageIndex]}
         <img alt="Chevron down" height="35" src={chevDown} width="35" />
       </button>
       <div
@@ -46,10 +52,10 @@ function Dropdown() {
         } w-44 divide-y divide-gray-100 rounded-lg bg-white shadow dark:bg-gray-700`}
       >
         <ul
-          className="py-2 text-sm text-gray-700 dark:text-gray-200"
+          className="absolute bg-white py-2 text-sm text-gray-700 dark:text-gray-200"
           aria-labelledby="states-button"
         >
-          {languages.map((language) => (
+          {languages.filter(Boolean).map((language) => (
             <li key={language}>
               <button
                 type="button"
