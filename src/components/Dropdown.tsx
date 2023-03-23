@@ -34,7 +34,7 @@ function Dropdown() {
   });
 
   return (
-    <div className="my-4 flex w-[175px] flex-col" ref={dropdownRef}>
+    <div className="m-4 flex max-w-[175px] flex-col" ref={dropdownRef}>
       <button
         id="states-button"
         data-dropdown-toggle="dropdown-states"
@@ -49,7 +49,7 @@ function Dropdown() {
         id="dropdown-states"
         className={`z-10 ${
           isOpen ? '' : 'hidden'
-        } w-44 divide-y divide-gray-100 rounded-lg bg-white shadow dark:bg-gray-700`}
+        } w-44 divide-y divide-gray-100 overflow-clip rounded-lg bg-white shadow dark:bg-gray-700`}
       >
         <ul
           className="absolute bg-white py-2 text-sm text-gray-700 dark:text-gray-200"
