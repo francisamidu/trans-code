@@ -6,6 +6,7 @@ import {
   APP_SHORT_DESCRIPTION,
 } from '@/utils/getEnv';
 import Dropdown from './Dropdown';
+import { Button } from '.';
 
 const Hero = () => {
   const [input, setInput] = useState('');
@@ -49,6 +50,7 @@ const Hero = () => {
             }
           />
           <Dropdown />
+          <Button />
         </div>
       </form>
     </section>
