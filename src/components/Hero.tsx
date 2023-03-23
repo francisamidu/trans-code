@@ -32,12 +32,15 @@ const Hero = () => {
         </p>
       </div>
       <form>
+        <label htmlFor="input" className="w-full bg-gray-200 py-2">
+          Code
+        </label>
         <textarea
           aria-label="input"
           value={input}
           onChange={(e) => setInput(e.target.value)}
           rows={4}
-          className="relative mt-3 w-full rounded-md border-2 border-slate-200 p-2 shadow-sm focus:border-slate-500 focus:ring-slate-500"
+          className="relative mt-3 w-1/2 rounded-md p-2 shadow-sm outline-none"
           placeholder={
             'Write or paste the code you want to translate/convert here'
           }

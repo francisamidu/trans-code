@@ -6,17 +6,17 @@ body {
   font-family: Inter, Arial, Helvetica, sans-serif;
 }
 
-textarea:before {
+textarea::before {
   content: '';
-  height: 120%;
-  width: 100%;
+  height: 20px;
+  width: 50px;
+  display: block;
   position: absolute;
-  top: -10px;
+  top: -20px;
   left: 0;
-  right: 0;
-  bottom: 0;
   background-color: #eee;
+  color: #eee;
 }
 
-textarea:after {
+textarea::after {
 }
