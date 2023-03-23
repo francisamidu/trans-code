@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { GithubIcon as Github } from 'lucide-react';
+import github from '../assets/images/github-icon.svg';
 import {
-  APP_LONG_DESCRIPTION,
+  APP_DESCRIPTION,
   APP_NAME,
   APP_SHORT_DESCRIPTION,
 } from '@/utils/getEnv';
@@ -20,16 +20,14 @@ const Hero = () => {
           target="_blank"
           rel="noreferrer"
         >
-          <Github color="#111" size={25} />
+          <img src={github} alt="Github logo" width="35" height="35" />
         </a>
       </nav>
       <div className="my-7 mx-auto flex flex-col items-center text-center md:w-7/12">
         <h1 className="px-4 text-2xl font-bold capitalize md:px-0 md:text-6xl md:leading-[4rem]">
           {APP_SHORT_DESCRIPTION}
         </h1>
-        <p className="mx-auto my-8 w-4/5 text-gray-500">
-          {APP_LONG_DESCRIPTION}
-        </p>
+        <p className="mx-auto my-8 w-4/5 text-gray-500">{APP_DESCRIPTION}</p>
       </div>
       <form className="flex flex-col items-center justify-center">
         <div className="flex flex-col rounded-t-md bg-white md:w-7/12">
