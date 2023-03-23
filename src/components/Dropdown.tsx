@@ -16,21 +16,27 @@ function Dropdown() {
     'C',
     'Kotlin',
   ]);
+  const setLanguage = (language: string) => {
+    const languageIndex = languages.findIndex((l) => l == language);
+    setLanguageIndex(languageIndex);
+  };
 
   const handleDropdownToggle = () => {
     setIsOpen(!isOpen);
   };
 
   return (
-    <div className="my-4 flex w-[82px] flex-col">
+    <div className="my-4 flex w-[125px] flex-col">
       <button
         id="states-button"
         data-dropdown-toggle="dropdown-states"
-        className="z-10 inline-flex flex-shrink-0 items-center rounded-lg border border-gray-300 bg-gray-100 pl-4 text-center text-sm font-medium text-gray-500 hover:bg-gray-200 focus:outline-none focus:ring-4 focus:ring-gray-100 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-700"
+        className="z-10 inline-flex flex-shrink-0 flex-row items-center justify-between rounded-lg border border-gray-300 bg-gray-100 pl-4 text-center text-sm font-medium text-gray-500 hover:bg-gray-200 focus:outline-none focus:ring-4 focus:ring-gray-100 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-700"
         type="button"
         onClick={handleDropdownToggle}
       >
-        {languages[languageIndex]}
+        {!languages[languageIndex]
+          ? 'Select desired language'
+          : languages[languageIndex]}
         <img alt="Chevron down" height="35" src={chevDown} width="35" />
       </button>
       <div
@@ -48,6 +54,8 @@ function Dropdown() {
               <button
                 type="button"
                 className="inline-flex w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-600 dark:hover:text-white"
+                onClickCapture={handleDropdownToggle}
+                onClick={() => setLanguage(language)}
               >
                 <div className="inline-flex items-center">{language}</div>
               </button>
