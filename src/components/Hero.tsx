@@ -5,6 +5,7 @@ import {
   APP_NAME,
   APP_SHORT_DESCRIPTION,
 } from '@/utils/getEnv';
+import Dropdown from './Dropdown';
 
 const Hero = () => {
   const [input, setInput] = useState('');
@@ -47,6 +48,7 @@ const Hero = () => {
               'Write or paste the code you want to translate/convert here'
             }
           />
+          <Dropdown />
         </div>
       </form>
     </section>
