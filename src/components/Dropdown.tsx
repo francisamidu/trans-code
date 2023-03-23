@@ -3,6 +3,19 @@ import chevDown from '../assets/images/chevron-down.svg';
 
 function Dropdown() {
   const [isOpen, setIsOpen] = useState(false);
+  const [languageIndex, setLanguageIndex] = useState(0);
+
+  const [languages, setLanguages] = useState([
+    'Python',
+    'Javascript',
+    'C#',
+    'Java',
+    'C++',
+    'PHP',
+    'Rust',
+    'C',
+    'Kotlin',
+  ]);
 
   const handleDropdownToggle = () => {
     setIsOpen(!isOpen);
@@ -17,7 +30,7 @@ function Dropdown() {
         type="button"
         onClick={handleDropdownToggle}
       >
-        USA
+        {languages[languageIndex]}
         <img alt="Chevron down" height="35" src={chevDown} width="35" />
       </button>
       <div
@@ -30,38 +43,16 @@ function Dropdown() {
           className="py-2 text-sm text-gray-700 dark:text-gray-200"
           aria-labelledby="states-button"
         >
-          <li>
-            <button
-              type="button"
-              className="inline-flex w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-600 dark:hover:text-white"
-            >
-              <div className="inline-flex items-center">United States</div>
-            </button>
-          </li>
-          <li>
-            <button
-              type="button"
-              className="inline-flex w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-600 dark:hover:text-white"
-            >
-              <div className="inline-flex items-center">Germany</div>
-            </button>
-          </li>
-          <li>
-            <button
-              type="button"
-              className="inline-flex w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-600 dark:hover:text-white"
-            >
-              <div className="inline-flex items-center">Italy</div>
-            </button>
-          </li>
-          <li>
-            <button
-              type="button"
-              className="inline-flex w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-600 dark:hover:text-white"
-            >
-              <div className="inline-flex items-center">China</div>
-            </button>
-          </li>
+          {languages.map((language) => (
+            <li key={language}>
+              <button
+                type="button"
+                className="inline-flex w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-600 dark:hover:text-white"
+              >
+                <div className="inline-flex items-center">{language}</div>
+              </button>
+            </li>
+          ))}
         </ul>
       </div>
     </div>
