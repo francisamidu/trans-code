@@ -5,12 +5,12 @@ import {
   APP_NAME,
   APP_SHORT_DESCRIPTION,
 } from '@/utils/getEnv';
-import Dropdown from './Dropdown';
-import { Button } from '.';
+import Translate from './Translate';
 
 const Hero = () => {
   const [input, setInput] = useState('');
   const [output, setOutput] = useState('');
+
   return (
     <section className="h-full w-full flex-1 ">
       <nav className="flex flex-row items-center justify-between py-4 md:mx-auto md:max-w-screen-lg">
@@ -31,28 +31,7 @@ const Hero = () => {
         </h1>
         <p className="mx-auto my-8 w-4/5 text-gray-500">{APP_DESCRIPTION}</p>
       </div>
-      <form className="mb-4 flex flex-col items-center justify-center">
-        <div className="flex flex-col rounded-t-md bg-white md:w-7/12">
-          <label
-            htmlFor="input"
-            className="w-full border-b-[1px] border-b-gray-100 p-2 text-sm font-bold text-gray-300"
-          >
-            Code
-          </label>
-          <textarea
-            aria-label="input"
-            value={input}
-            onChange={(e) => setInput(e.target.value)}
-            rows={8}
-            className="relative rounded-b-md p-2 shadow-sm outline-none "
-            placeholder={
-              'Write or paste the code you want to translate/convert here'
-            }
-          />
-          <Dropdown />
-          <Button />
-        </div>
-      </form>
+      <Translate input={input} setInput={setInput} setOutput={setOutput} />
     </section>
   );
 };
