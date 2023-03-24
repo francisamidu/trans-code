@@ -1,6 +1,8 @@
 import React, { Dispatch, SetStateAction } from 'react';
+import axios from 'axios';
 import Button from './Button';
 import Dropdown from './Dropdown';
+import { API_URL } from '../utils/getEnv';
 
 type TranslateProps = {
   input: string;
@@ -8,6 +10,22 @@ type TranslateProps = {
   setOutput: Dispatch<SetStateAction<string>>;
 };
 const Translate = ({ input, setInput, setOutput }: TranslateProps) => {
+  const translate = async () => {
+    if (!input) {
+      return;
+    }
+    try {
+      const req = await axios.post(API_URL, {
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          prompt: input,
+        }),
+      });
+    } catch (error) {}
+  };
   return (
     <form className="mb-4 flex flex-col items-center justify-center">
       <div className="flex flex-col rounded-t-md bg-white md:w-7/12">

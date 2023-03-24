@@ -1,10 +1,16 @@
-import React from 'react';
+import React from 'react'
 
 type CodeProps = {
-  code: string;
-};
-const Code = ({ code }: CodeProps) => {
-  return <div>{code}</div>;
-};
+    code:string
+}
+const Code = ({
+    code
+}:CodeProps) => {
+  return (
+    <div>
+        {code}
+    </div>
+  )
+}
 
-export default Code;
+export default Code
