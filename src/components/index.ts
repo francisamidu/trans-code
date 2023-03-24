@@ -1,5 +1,7 @@
-import Button from "./Button";
-import Dropdown from "./Dropdown";
-import Hero from "./Hero";
+import Button from './Button';
+import Code from './Code';
+import Dropdown from './Dropdown';
+import Hero from './Hero';
+import Translate from './Translate';
 
-export {Button,Dropdown, Hero}
+export { Button, Code, Dropdown, Hero, Translate };

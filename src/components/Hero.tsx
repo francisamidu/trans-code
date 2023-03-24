@@ -5,7 +5,7 @@ import {
   APP_NAME,
   APP_SHORT_DESCRIPTION,
 } from '@/utils/getEnv';
-import Translate from './Translate';
+import { Code, Translate } from '.';
 
 const Hero = () => {
   const [input, setInput] = useState('');
@@ -32,6 +32,7 @@ const Hero = () => {
         <p className="mx-auto my-8 w-4/5 text-gray-500">{APP_DESCRIPTION}</p>
       </div>
       <Translate input={input} setInput={setInput} setOutput={setOutput} />
+      <Code code={output} />
     </section>
   );
 };
