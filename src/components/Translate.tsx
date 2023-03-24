@@ -1,5 +1,7 @@
 import React, { Dispatch, SetStateAction } from 'react';
 import axios from 'axios';
+import { toast } from 'react-hot-toast';
+
 import Button from './Button';
 import Dropdown from './Dropdown';
 import { API_URL } from '../utils/getEnv';
@@ -24,7 +26,11 @@ const Translate = ({ input, setInput, setOutput }: TranslateProps) => {
           prompt: input,
         }),
       });
-    } catch (error) {}
+      setOutput(req.data);
+    } catch (error) {
+      const err = error instanceof Error ? error.message : 'Unknown Error';
+      toast.error(err);
+    }
   };
   return (
     <form className="mb-4 flex flex-col items-center justify-center">
@@ -46,7 +52,7 @@ const Translate = ({ input, setInput, setOutput }: TranslateProps) => {
           }
         />
         <Dropdown />
-        <Button />
+        <Button handler={translate} />
       </div>
     </form>
   );
