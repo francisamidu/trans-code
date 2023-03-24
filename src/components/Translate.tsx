@@ -1,4 +1,4 @@
-import React, { Dispatch, SetStateAction } from 'react';
+import React, { Dispatch, SetStateAction, useState } from 'react';
 import axios from 'axios';
 import { toast } from 'react-hot-toast';
 
@@ -12,21 +12,37 @@ type TranslateProps = {
   setOutput: Dispatch<SetStateAction<string>>;
 };
 const Translate = ({ input, setInput, setOutput }: TranslateProps) => {
+  const [languageIndex, setLanguageIndex] = useState(0);
+
+  const [languages, setLanguages] = useState([
+    '',
+    'Python',
+    'Javascript',
+    'C#',
+    'Java',
+    'C++',
+    'PHP',
+    'Rust',
+    'C',
+    'Kotlin',
+  ]);
   const translate = async () => {
     if (!input) {
       return;
     }
     try {
-      const req = await axios.post(API_URL, {
-        headers: {
-          Accept: 'application/json',
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          prompt: input,
-        }),
-      });
-      setOutput(req.data);
+      const prompt = `Convert the following code from JavaScript to ${languages[languageIndex]}: console.log("Hi")`;
+      console.log(prompt);
+      // const req = await axios.post(API_URL, {
+      //   headers: {
+      //     Accept: 'application/json',
+      //     'Content-Type': 'application/json',
+      //   },
+      //   body: JSON.stringify({
+      //     prompt: input,
+      //   }),
+      // });
+      // setOutput(req.data);
     } catch (error) {
       const err = error instanceof Error ? error.message : 'Unknown Error';
       toast.error(err);
@@ -51,7 +67,12 @@ const Translate = ({ input, setInput, setOutput }: TranslateProps) => {
             'Write or paste the code you want to translate/convert here'
           }
         />
-        <Dropdown />
+        <Dropdown
+          languageIndex={languageIndex}
+          languages={languages}
+          setLanguageIndex={setLanguageIndex}
+          setLanguages={setLanguages}
+        />
         <Button handler={translate} />
       </div>
     </form>

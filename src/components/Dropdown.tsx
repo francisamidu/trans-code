@@ -1,23 +1,21 @@
 import useClickOutside from '@/hooks/useClickOutside';
-import React, { useRef, useState } from 'react';
+import React, { Dispatch, SetStateAction, useRef, useState } from 'react';
 import chevDown from '../assets/images/chevron-down.svg';
 
-function Dropdown() {
+type DropdownProps = {
+  languageIndex: number;
+  setLanguageIndex: Dispatch<SetStateAction<number>>;
+  languages: string[];
+  setLanguages: Dispatch<SetStateAction<string[]>>;
+};
+function Dropdown({
+  languageIndex,
+  languages,
+  setLanguageIndex,
+  setLanguages,
+}: DropdownProps) {
   const [isOpen, setIsOpen] = useState(false);
-  const [languageIndex, setLanguageIndex] = useState(0);
 
-  const [languages, setLanguages] = useState([
-    '',
-    'Python',
-    'Javascript',
-    'C#',
-    'Java',
-    'C++',
-    'PHP',
-    'Rust',
-    'C',
-    'Kotlin',
-  ]);
   const setLanguage = (language: string) => {
     const languageIndex = languages.findIndex((l) => l == language);
     setLanguageIndex(languageIndex);
