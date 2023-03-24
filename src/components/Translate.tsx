@@ -1,5 +1,4 @@
 import React, { Dispatch, SetStateAction, useState } from 'react';
-import axios from 'axios';
 import { toast } from 'react-hot-toast';
 
 import Button from './Button';
@@ -17,14 +16,17 @@ const Translate = ({ input, setInput, setOutput }: TranslateProps) => {
   const [languages, setLanguages] = useState([
     '',
     'Python',
-    'Javascript',
-    'C#',
+    'Go',
     'Java',
-    'C++',
-    'PHP',
-    'Rust',
-    'C',
     'Kotlin',
+    'PHP',
+    'C#',
+    'Swift',
+    'R',
+    'Ruby',
+    'C++',
+    'C',
+    'Rust',
   ]);
   const translate = async () => {
     if (!input) {
@@ -32,17 +34,17 @@ const Translate = ({ input, setInput, setOutput }: TranslateProps) => {
     }
     try {
       const prompt = `Convert the following code from JavaScript to ${languages[languageIndex]}: console.log("Hi")`;
-      console.log(prompt);
-      // const req = await axios.post(API_URL, {
-      //   headers: {
-      //     Accept: 'application/json',
-      //     'Content-Type': 'application/json',
-      //   },
-      //   body: JSON.stringify({
-      //     prompt: input,
-      //   }),
-      // });
-      // setOutput(req.data);
+      fetch(API_URL, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          prompt,
+        }),
+      })
+        .then((res) => res.json())
+        .then((res) => console.log(res));
     } catch (error) {
       const err = error instanceof Error ? error.message : 'Unknown Error';
       toast.error(err);
