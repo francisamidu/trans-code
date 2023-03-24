@@ -25,13 +25,13 @@ const Hero = () => {
           <img src={github} alt="Github logo" width="35" height="35" />
         </a>
       </nav>
-      <div className="my-7 mx-auto flex flex-col items-center text-center md:w-1/2">
+      <div className="my-4 mx-auto flex flex-col items-center text-center md:w-1/2">
         <h1 className="px-4 text-2xl font-bold capitalize md:px-0 md:text-6xl md:leading-[4rem]">
           {APP_SHORT_DESCRIPTION}
         </h1>
         <p className="mx-auto my-8 w-4/5 text-gray-500">{APP_DESCRIPTION}</p>
       </div>
-      <form className="flex flex-col items-center justify-center">
+      <form className="mb-4 flex flex-col items-center justify-center">
         <div className="flex flex-col rounded-t-md bg-white md:w-7/12">
           <label
             htmlFor="input"
