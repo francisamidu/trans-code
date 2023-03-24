@@ -31,8 +31,10 @@ const Hero = () => {
         </h1>
         <p className="mx-auto my-8 w-4/5 text-gray-500">{APP_DESCRIPTION}</p>
       </div>
-      <Translate input={input} setInput={setInput} setOutput={setOutput} />
-      <Code code={output} />
+      <div className="mx-auto mb-4 flex flex-row items-start justify-center md:max-w-screen-lg">
+        <Translate input={input} setInput={setInput} setOutput={setOutput} />
+        <Code code={output} />
+      </div>
     </section>
   );
 };

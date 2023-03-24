@@ -33,8 +33,8 @@ const Translate = ({ input, setInput, setOutput }: TranslateProps) => {
     }
   };
   return (
-    <form className="mb-4 flex flex-col items-center justify-center">
-      <div className="flex flex-col rounded-t-md bg-white md:w-7/12">
+    <form className="mr-0.5 h-[390px] w-1/2">
+      <div className="flex w-full flex-col rounded-t-md bg-white">
         <label
           htmlFor="input"
           className="w-full border-b-[1px] border-b-gray-100 p-2 text-sm font-bold text-gray-300"
