@@ -11,7 +11,6 @@ const Hero = () => {
   const [input, setInput] = useState('');
   const [output, setOutput] = useState('Console.WriteLine("Oi")');
   const [languageIndex, setLanguageIndex] = useState(0);
-
   const [languages, setLanguages] = useState([
     '',
     'Python',
@@ -27,7 +26,6 @@ const Hero = () => {
     'C',
     'Rust',
   ]);
-
   const [code, setCode] = useState('');
 
   useEffect(() => {

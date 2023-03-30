@@ -5,7 +5,10 @@ module.exports = {
       colors: {
         flame: "#e24e1b",
         eerie: "#172121"
-      }
+      },
+      fontFamily: {
+        'inter': ['Inter', 'sans-serif']
+      },
     },
   },
   plugins: [],

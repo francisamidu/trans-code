@@ -15,14 +15,13 @@ const Code = ({ code, language }: CodeProps) => {
       >
         Result
       </label>
-      <div className="flex flex-row items-center">
-        <div className="relative rounded-b-md pl-2 shadow-sm outline-none ">
-          <SyntaxHighlighter className="blinking-cursor" language={language}>
-            {code}
-          </SyntaxHighlighter>
-        </div>
-        <div className="blinking-cursor text-xl text-gray-400"></div>
-      </div>
+
+      <SyntaxHighlighter
+        className="blinking-cursor !bg-white !font-inter"
+        language={language}
+      >
+        {code}
+      </SyntaxHighlighter>
     </div>
   );
 };
