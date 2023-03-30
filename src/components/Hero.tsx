@@ -10,6 +10,23 @@ import { Code, Translate } from '.';
 const Hero = () => {
   const [input, setInput] = useState('');
   const [output, setOutput] = useState('Console.WriteLine("Oi")');
+  const [languageIndex, setLanguageIndex] = useState(0);
+
+  const [languages, setLanguages] = useState([
+    '',
+    'Python',
+    'Go',
+    'Java',
+    'Kotlin',
+    'PHP',
+    'C#',
+    'Swift',
+    'R',
+    'Ruby',
+    'C++',
+    'C',
+    'Rust',
+  ]);
 
   const [code, setCode] = useState('');
 
@@ -41,8 +58,16 @@ const Hero = () => {
         <p className="mx-auto my-8 w-4/5 text-gray-500">{APP_DESCRIPTION}</p>
       </div>
       <div className="mx-auto mb-4 flex flex-row items-start justify-center md:max-w-screen-lg">
-        <Translate input={input} setInput={setInput} setOutput={setOutput} />
-        <Code code={code} />
+        <Translate
+          languageIndex={languageIndex}
+          languages={languages}
+          setLanguageIndex={setLanguageIndex}
+          setLanguages={setLanguages}
+          input={input}
+          setInput={setInput}
+          setOutput={setOutput}
+        />
+        <Code code={code} language={languages[languageIndex]} />
       </div>
     </section>
   );

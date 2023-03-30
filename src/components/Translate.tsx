@@ -7,27 +7,22 @@ import { API_URL } from '../utils/getEnv';
 
 type TranslateProps = {
   input: string;
+  languageIndex: number;
+  languages: string[];
+  setLanguageIndex: Dispatch<SetStateAction<number>>;
+  setLanguages: Dispatch<SetStateAction<string[]>>;
   setInput: Dispatch<SetStateAction<string>>;
   setOutput: Dispatch<SetStateAction<string>>;
 };
-const Translate = ({ input, setInput, setOutput }: TranslateProps) => {
-  const [languageIndex, setLanguageIndex] = useState(0);
-
-  const [languages, setLanguages] = useState([
-    '',
-    'Python',
-    'Go',
-    'Java',
-    'Kotlin',
-    'PHP',
-    'C#',
-    'Swift',
-    'R',
-    'Ruby',
-    'C++',
-    'C',
-    'Rust',
-  ]);
+const Translate = ({
+  input,
+  languageIndex,
+  languages,
+  setInput,
+  setLanguageIndex,
+  setLanguages,
+  setOutput,
+}: TranslateProps) => {
   const translate = async () => {
     if (!input) {
       return;
