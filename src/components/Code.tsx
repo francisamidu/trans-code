@@ -12,8 +12,11 @@ const Code = ({ code }: CodeProps) => {
       >
         Result
       </label>
-      <div className="relative rounded-b-md p-2 shadow-sm outline-none ">
-        {code}
+      <div className="flex flex-row items-center">
+        <div className="relative rounded-b-md pl-2 shadow-sm outline-none ">
+          {code}
+        </div>
+        <div className="blinking-cursor text-xl text-gray-400"></div>
       </div>
     </div>
   );

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import github from '../assets/images/github-icon.svg';
 import {
   APP_DESCRIPTION,
@@ -9,7 +9,16 @@ import { Code, Translate } from '.';
 
 const Hero = () => {
   const [input, setInput] = useState('');
-  const [output, setOutput] = useState('');
+  const [output, setOutput] = useState('Console.WriteLine("Oi")');
+
+  const [code, setCode] = useState('');
+
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      setCode(output.slice(0, code.length + 1));
+    }, 100);
+    return () => clearTimeout(timeout);
+  }, [code]);
 
   return (
     <section className="h-full w-full flex-1 ">
@@ -33,7 +42,7 @@ const Hero = () => {
       </div>
       <div className="mx-auto mb-4 flex flex-row items-start justify-center md:max-w-screen-lg">
         <Translate input={input} setInput={setInput} setOutput={setOutput} />
-        <Code code={output} />
+        <Code code={code} />
       </div>
     </section>
   );
