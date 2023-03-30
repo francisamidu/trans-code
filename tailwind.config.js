@@ -7,7 +7,7 @@ module.exports = {
         eerie: "#172121"
       },
       fontFamily: {
-        'inter': ['Inter', 'sans-serif']
+        'fira': ['Fira Code', 'sans-serif']
       },
     },
   },

@@ -17,7 +17,7 @@ const Code = ({ code, language }: CodeProps) => {
       </label>
 
       <SyntaxHighlighter
-        className="blinking-cursor !bg-white !font-inter"
+        className="blinking-cursor !bg-white !font-fira"
         language={language}
       >
         {code}

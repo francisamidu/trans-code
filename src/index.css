@@ -19,3 +19,7 @@ body {
     opacity: 0;
   }
 }
+
+code {
+  font-family: Inter !important;
+}
