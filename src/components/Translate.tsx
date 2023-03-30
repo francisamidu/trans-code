@@ -33,7 +33,7 @@ const Translate = ({ input, setInput, setOutput }: TranslateProps) => {
       return;
     }
     try {
-      const prompt = `Convert the following code from JavaScript to ${languages[languageIndex]}: console.log("Hi")`;
+      const prompt = `Convert the following code from JavaScript to ${languages[languageIndex]}: ${input}`;
       fetch(API_URL, {
         method: 'POST',
         headers: {
@@ -44,7 +44,10 @@ const Translate = ({ input, setInput, setOutput }: TranslateProps) => {
         }),
       })
         .then((res) => res.json())
-        .then((res) => console.log(res));
+        .then((res) => console.log(res))
+        .catch((err) => {
+          throw err;
+        });
     } catch (error) {
       const err = error instanceof Error ? error.message : 'Unknown Error';
       toast.error(err);
