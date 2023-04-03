@@ -6,9 +6,6 @@ module.exports = {
         flame: "#e24e1b",
         eerie: "#172121"
       },
-      fontFamily: {
-        'fira': ['Fira Code', 'sans-serif']
-      },
     },
   },
   plugins: [],

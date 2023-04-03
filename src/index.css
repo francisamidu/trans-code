@@ -19,7 +19,6 @@ body {
     opacity: 0;
   }
 }
-
 code {
-  font-family: Inter !important;
+  font-family: 'Fira code' !important;
 }

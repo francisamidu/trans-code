@@ -1,6 +1,5 @@
 import React from 'react';
 import SyntaxHighlighter from 'react-syntax-highlighter';
-import { Prism } from 'react-syntax-highlighter';
 
 type CodeProps = {
   code: string;
@@ -16,10 +15,7 @@ const Code = ({ code, language }: CodeProps) => {
         Result
       </label>
 
-      <SyntaxHighlighter
-        className="blinking-cursor !bg-white !font-fira"
-        language={language}
-      >
+      <SyntaxHighlighter className="blinking-cursor" language={language}>
         {code}
       </SyntaxHighlighter>
     </div>
