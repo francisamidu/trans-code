@@ -39,7 +39,11 @@ const Translate = ({
         }),
       })
         .then((res) => res.json())
-        .then((res) => console.log(res))
+        .then((res) => {
+          const text = res.result.replaceAll('\n', '');
+          console.log(text);
+          setOutput(text);
+        })
         .catch((err) => {
           throw err;
         });

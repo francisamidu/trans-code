@@ -9,7 +9,7 @@ import { Code, Translate } from '.';
 
 const Hero = () => {
   const [input, setInput] = useState('');
-  const [output, setOutput] = useState('Console.WriteLine("Oi")');
+  const [output, setOutput] = useState('');
   const [languageIndex, setLanguageIndex] = useState(0);
   const [languages, setLanguages] = useState([
     '',
@@ -33,7 +33,7 @@ const Hero = () => {
       setCode(output.slice(0, code.length + 1));
     }, 100);
     return () => clearTimeout(timeout);
-  }, [code]);
+  }, [output]);
 
   return (
     <section className="h-full w-full flex-1 ">
