@@ -29,10 +29,7 @@ const Hero = () => {
   const [code, setCode] = useState('');
 
   useEffect(() => {
-    const timeout = setTimeout(() => {
-      setCode(output.slice(0, code.length + 1));
-    }, 100);
-    return () => clearTimeout(timeout);
+    setCode(output);
   }, [output]);
 
   return (
